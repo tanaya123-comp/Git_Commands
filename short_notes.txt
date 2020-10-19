@@ -1,0 +1,95 @@
+** Getting started with git **
+
+1. Install git
+
+2. Configure user name and email id for first time setup
+
+git config --global user.name "pratham022"
+git config --global user.email "pthombre657@gmail.com"
+
+git config --list
+
+git config --global core.editor editoname  //in linux
+
+git config user.name
+
+git config user.email
+
+-------------------------------------------------------------------------------------------
+** CONCEPT **
+
+
+working		   staging area			git repository
+directory		
+|			|				|
+|			|      <<-----------------------|
+|			|	checkout the project	|
+|----------->>		|				|
+|stage files		|				|
+|			|				|
+|			|--------------->>		|
+|			|	commit
+
+
+I : working directory
+II : staging area - files you expect to go to the next stage
+III : git directory(repository)
+
+
+//file status life cycle
+untracked --> unmodified --> modified --> staged(Ready for commit)
+//by default all files are untracked
+//to track git add --a for tracking all files in unmodified and staged
+//we add them to stage area it is unmodified
+//when we change a file it  becomes modified and we have to add it to stage
+//then after staged it comes again to unmodified
+
+
+-----------------------------------------------------------------------------------------------
+** COMMANDS **
+
+1. 	git status	// gives status of all files in a git repository to make a .git folder
+2. 	git init	//makes it git repository
+3. 	git add myfile.txt //to stage just one file
+4. 	git add .	 //add all files 	
+5. 	git add --a	//add all files in staging areas
+6. 	git commit -m "Commit Message" //to commit the staged files
+7. 	git checkout -- "myfile.txt"
+8. 	git reset HEAD myfile.txt  
+9. 	git diff		//compares the working directory with the staging area if a file is present in both 
+10. 	git diff --staged	//compares the previous commit with the current staging area file and shows the changes
+11. 	git commit -a -m "Commit Message"		// all the tracked files are commited (not untracked ones) and thus staging area is skiped
+
+12. 	git log			//to see all commits after commit staging area becomes clean
+	git log -p	
+	git log -p -3	
+	git log --stat	
+	git log --pretty=oneline
+	git log --pretty=short
+	git log --pretty=full
+	git log --since=2.days
+	git log --since=2.years
+	git log --since=2.months
+
+13.	touch .gitignore
+
+14. 	git rm myfile.txt //deletes the file and stages it
+15.	git mv oldname.txt newname.txt//renames a file and places it in the staging area
+
+16. 	git rm --cached filename.extension //untracks a file 
+
+17.     rm -rf .git //to delete the entire git repository
+
+18.   git clone the cloneurl [nameofgit] //git reposiory from different git is taken here everything is copied however we can cannot make changes in the remote directory
+	//we can make changes in our directory
+19.   touch filename.filetype //creates a file 
+
+20.  touch .gitignore // to ignore certain file we add it to .gitignore inside it we write the file name 
+
+21. //inside the .gitignore we can also add directory /dir to ignore it 
+//blank folder is ignored by default
+
+//when you rename a file explicitly the git assumes that you have deleted a file and added a new file
+
+
+
